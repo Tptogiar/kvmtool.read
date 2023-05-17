@@ -433,6 +433,7 @@ int __attribute__((weak)) kvm__get_vm_type(struct kvm *kvm)
 	return KVM_VM_TYPE;
 }
 
+/* use for: core_init */
 int kvm__init(struct kvm *kvm)
 {
 	int ret;

@@ -40,6 +40,11 @@ struct kvm_config {
 	const char *firmware_filename;
 	const char *flash_filename;
 	const char *console;
+	/* use in: kvm_cmd_run_init
+	 *  	   kvm__init
+	 *
+	 * assignment: DEFAULT_KVM_DEV  "/dev/kvm"
+	 */
 	const char *dev;
 	const char *network;
 	const char *host_ip;

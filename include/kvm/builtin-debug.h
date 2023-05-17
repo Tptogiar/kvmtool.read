@@ -14,7 +14,7 @@ struct debug_cmd_params {
 	char sysrq;
 };
 
-int kvm_cmd_debug(int argc, const char **argv, const char *prefix);
+//for_read_code int kvm_cmd_debug(int argc, const char **argv, const char *prefix);
 void kvm_debug_help(void) NORETURN;
 
 #endif

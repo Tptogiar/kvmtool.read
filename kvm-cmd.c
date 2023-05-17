@@ -61,6 +61,7 @@ struct cmd_struct *kvm_get_command(struct cmd_struct *command,
 	return NULL;
 }
 
+/* caller handle_kvm_command */
 int handle_command(struct cmd_struct *command, int argc, const char **argv)
 {
 	struct cmd_struct *p;

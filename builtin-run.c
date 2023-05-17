@@ -606,6 +606,7 @@ static void kvm_run_validate_cfg(struct kvm *kvm)
 	kvm__arch_validate_cfg(kvm);
 }
 
+/* caller kvm_cmd_run */
 static struct kvm *kvm_cmd_run_init(int argc, const char **argv)
 {
 	static char default_name[20];
@@ -805,6 +806,7 @@ static void kvm_cmd_run_exit(struct kvm *kvm, int guest_ret)
 		printf("\n  # KVM session ended normally.\n");
 }
 
+/* caller kvm_cmd_sandbox */
 int kvm_cmd_run(int argc, const char **argv, const char *prefix)
 {
 	int ret = -EFAULT;

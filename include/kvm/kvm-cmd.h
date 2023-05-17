@@ -12,6 +12,6 @@ extern struct cmd_struct kvm_commands[];
 struct cmd_struct *kvm_get_command(struct cmd_struct *command,
                 const char *cmd);
 
-int handle_command(struct cmd_struct *command, int argc, const char **argv);
+//for_read_code int handle_command(struct cmd_struct *command, int argc, const char **argv);
 
 #endif

@@ -9,14 +9,15 @@ struct init_item {
 	int (*init)(struct kvm *);
 };
 
-int init_list__init(struct kvm *kvm);
+//for_read_code int init_list__init(struct kvm *kvm);
 int init_list__exit(struct kvm *kvm);
 
-int init_list_add(struct init_item *t, int (*init)(struct kvm *),
-			int priority, const char *name);
+//for_read_code int init_list_add(struct init_item *t, int (*init)(struct kvm *),
+//for_read_code 			int priority, const char *name);
 int exit_list_add(struct init_item *t, int (*init)(struct kvm *),
 			int priority, const char *name);
 
+/* use in: tptogiar_core_init */
 #define __init_list_add(cb, l)						\
 static void __attribute__ ((constructor)) __init__##cb(void)		\
 {									\
@@ -33,6 +34,7 @@ static void __attribute__ ((constructor)) __init__##cb(void)		\
 	exit_list_add(&t, cb, l, name);					\
 }
 
+#define tptogiar_core_init for_code_jump
 #define core_init(cb) __init_list_add(cb, 0)
 #define base_init(cb) __init_list_add(cb, 2)
 #define dev_base_init(cb)  __init_list_add(cb, 4)

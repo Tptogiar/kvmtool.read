@@ -6,9 +6,14 @@
 
 #define PRIORITY_LISTS 10
 
+/* 初始化函数列表 
+ * caller init_list__init &
+ * 		  init_list_add
+ */
 static struct hlist_head init_lists[PRIORITY_LISTS];
 static struct hlist_head exit_lists[PRIORITY_LISTS];
 
+/* use in: __init_list_add */
 int init_list_add(struct init_item *t, int (*init)(struct kvm *),
 			int priority, const char *name)
 {
@@ -29,6 +34,7 @@ int exit_list_add(struct init_item *t, int (*init)(struct kvm *),
 	return 0;
 }
 
+/* caller kvm_cmd_run_init */
 int init_list__init(struct kvm *kvm)
 {
 	unsigned int i;
